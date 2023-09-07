@@ -1,0 +1,17 @@
+version: '3'
+services:
+  recaptcha:
+    image: sechelper/armory:recaptcha-runtime-latest
+    volumes:
+      - .:${HOME}/recaptcha
+    working_dir: ${HOME}/recaptcha
+    command:
+      - sh
+      - -c
+      - |
+        go mod tidy
+        go build serv/recaptcha-serv.go
+        export TESSDATA_PREFIX=${HOME}/recaptcha/testdata
+        ./recaptcha-serv
+    ports:
+      - "60080:60080"
