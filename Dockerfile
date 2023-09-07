@@ -14,8 +14,8 @@ ENV PATH=${PATH}:${GOPATH}/bin
 RUN wget https://github.com/hybridgroup/gocv/archive/refs/tags/v0.34.0.tar.gz
 RUN tar -zxf v0.34.0.tar.gz && cd gocv-0.34.0 && make install
 
-ADD . $GOPATH/src/github.com/sechelper/recaptcha
-WORKDIR $GOPATH/src/github.com/sechelper/recaptcha
+ADD . armory-recaptcha
+WORKDIR armory-recaptcha
 RUN go build -ldflags "-s -w" serv/recaptcha-serv.go
 
 RUN export TESSDATA_PREFIX=$GOPATH/src/github.com/sechelper/recaptcha/testdata/
