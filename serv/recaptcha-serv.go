@@ -12,5 +12,5 @@ func main() {
 	r.POST("/v1/captcha/image", recaptcha.RecCaptchaImageHandle)
 	r.POST("/v1/captcha/base64", recaptcha.RecCaptchaBase64Handle)
 
-	r.Run(":60085")
+	r.Run(":60080")
 }
