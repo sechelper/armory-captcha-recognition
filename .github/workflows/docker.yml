@@ -6,7 +6,7 @@ on:
       - v*
 
 env:
-  APP_NAME: recaptcha
+  APP_NAME: recaptcha-runtime
   DOCKERHUB_REPO: sechelper/armory
 
 jobs:
