@@ -13,12 +13,3 @@ ENV PATH=${PATH}:${GOPATH}/bin
 
 RUN wget https://github.com/hybridgroup/gocv/archive/refs/tags/v0.34.0.tar.gz
 RUN tar -zxf v0.34.0.tar.gz && cd gocv-0.34.0 && make install && rm -rf v0.34.0.tar.gz gocv-0.34.0
-
-ADD . recaptcha
-WORKDIR recaptcha
-RUN go build -ldflags "-s -w" serv/recaptcha-serv.go
-
-RUN export TESSDATA_PREFIX=${HOME}/recaptcha/testdata
-
-ENV PORT=60080
-CMD ["recaptcha-serv"]
